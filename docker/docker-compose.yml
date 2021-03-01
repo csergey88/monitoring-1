@@ -1,4 +1,4 @@
-version: '3.3'
+version: '2.0'
 services:
   post_db:
     image: mongo:3.2
@@ -32,6 +32,19 @@ services:
       - '--storage.tsdb.retention=1d'
     networks:
       - reddit
+  node_exporter:
+      image: prom/node-exporter:v0.15.2
+      user: root
+      volumes:
+        - /proc:/host/proc:ro
+        - /sys:/host/sys:ro
+        - /:/rootfs:ro
+      command:
+        - '--path.procfs=/host/proc'
+        - '--path.sysfs=/host/sys'
+        - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
+      networks: :
+        - reddit
 
 volumes:
   post_db:
