@@ -32,7 +32,7 @@ services:
       - '--storage.tsdb.retention=1d'
     networks:
       - reddit
-  node_exporter:
+  node-exporter:
     image: prom/node-exporter:v0.15.2
     user: root
     volumes:
