@@ -6,6 +6,8 @@ services:
       - post_db:/data/db
     networks:
       - reddit
+    ports:
+      - 27017:27017
   ui:
     image: ${USERNAME}/ui:1.0
     ports:
