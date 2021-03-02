@@ -9,17 +9,17 @@ services:
     ports:
       - 27017:27017
   ui:
-    image: csergey88/ui:1.0
+    image: csergey88/ui:latest
     ports:
       - 9292:9292/tcp
     networks:
       - reddit
   post:
-    image: csergey88/post:1.0
+    image: csergey88/post:latest
     networks:
       - reddit
   comment:
-    image: csergey88/comment:1.0
+    image: csergey88/comment:latest
     networks:
       - reddit
   prometheus:
