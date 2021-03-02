@@ -1,7 +1,7 @@
 version: '2.0'
 services:
   post_db:
-    image: ${USERNAME}/mongodb:latest
+    image: csergey88/mongodb:latest
     volumes:
       - post_db:/data/db
     networks:
@@ -9,21 +9,21 @@ services:
     ports:
       - 27017:27017
   ui:
-    image: ${USERNAME}/ui:1.0
+    image: csergey88/ui:1.0
     ports:
       - 9292:9292/tcp
     networks:
       - reddit
   post:
-    image: ${USERNAME}/post:1.0
+    image: csergey88/post:1.0
     networks:
       - reddit
   comment:
-    image: ${USERNAME}/comment:1.0
+    image: csergey88/comment:1.0
     networks:
       - reddit
   prometheus:
-    image: ${USERNAME}/prometheus
+    image: csergey88/prometheus
     ports: 
       - 9090:9090
     volumes:
